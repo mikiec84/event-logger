@@ -1,0 +1,36 @@
+{
+	"manifest_version": 2,
+	"name"            : "Event Logger",
+	"version"         : "1.0.0",
+	"description"     : "...",
+
+	"options_page"    : "public/options.html",
+
+	"background" : {
+		"scripts": [
+			"lib/background/modules/log.js",
+			"lib/background/index.js"
+		]
+	},
+
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": [
+				"lib/content/index.js"
+			],
+			"run_at": "document_start",
+			"all_frames": true
+		}
+	],
+
+	"icons": {
+		"16"  : "public/images/icon16.png",
+		"48"  : "public/images/icon48.png"
+	},
+
+	"permissions": [
+		"tabs",
+		"webNavigation"
+	]
+}
